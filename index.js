@@ -1,9 +1,8 @@
 const http = require ('http');
 const url = require ('url');
-const port = process.env.PORT;
-const host = process.env.HOST;
+
 const server = http.createServer(function(req, res){
-    if (req.method == "GET" && req.url == '/hello'){
+    if (req.method == 'GET' && req.url == '/hello'){
         res.writeHead(200, {"Content-Type": "text/plain"});
         res.write('world');
         res.end();
@@ -25,7 +24,7 @@ const server = http.createServer(function(req, res){
     }
     else{
         res.writeHead(200, {"Content-Type": "text/plain"});
-        res.write('URL error');
+        res.write('URL not found!');
         res.end();
     }
 });
