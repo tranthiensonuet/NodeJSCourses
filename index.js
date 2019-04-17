@@ -1,6 +1,9 @@
 const http = require ('http');
 const url = require ('url');
 
+const port = process.env.PORT;
+const host = process.env.HOST;
+
 const server = http.createServer(function(req, res){
     if (req.method == 'GET' && req.url == '/hello'){
         res.writeHead(200, {"Content-Type": "text/plain"});
@@ -28,6 +31,7 @@ const server = http.createServer(function(req, res){
         res.end();
     }
 });
-const PORT = 5000;
-server.listen(PORT);
-console.log(`Server started on ${PORT}`);
+server.listen(port, host, function (err) {
+   if (!err) console.log(`Server started ${host} on ${port}`);
+   else console.log(err);
+});
